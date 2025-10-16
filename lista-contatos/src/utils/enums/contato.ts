@@ -1,5 +1,5 @@
 export enum Categoria {
-    PESSOAL = 'pessoal',
-    TRABALHO = 'trabalho',
-    SERICOS = 'serviços'
+    PESSOAL = 'Pessoal',
+    TRABALHO = 'Trabalho',
+    SERICOS = 'Serviços'
 }
