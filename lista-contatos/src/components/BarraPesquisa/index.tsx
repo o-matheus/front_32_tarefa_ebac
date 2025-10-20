@@ -7,6 +7,7 @@ const InputPesquisa = styled(Input)`
     background-repeat: no-repeat;
     background-position: 12px center;
     padding-left: 44px;
+    width: 400px;
 `;
 
 const BarraPesquisa = () => <InputPesquisa placeholder="Buscar Contatos"/>

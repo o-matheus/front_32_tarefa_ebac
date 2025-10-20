@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import variaveis from "../../../styles/variaveis";
 
 export const DivMobile = styled.div`
     header {
@@ -12,7 +13,15 @@ export const DivMobile = styled.div`
     }
 
     main {
-
+        button {
+            margin-left: 8px;
+            color: #e4dfdf;
+            width: 300px;
+            p {
+                font-weight: 400;
+                font-size: 24px;
+            }
+        }
     }
 
     footer{

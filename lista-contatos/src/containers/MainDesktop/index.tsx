@@ -5,15 +5,23 @@ import { Main } from "./styles"
 import type { RootReducer } from "../../store"
 import LinhaTabela from "../../components/LinhaTabela"
 import {BotaoAcao} from "../../components/Botao"
+import { useState } from "react"
+import Modal from "../../components/Modal"
+import FormContato from "../FormContato"
 
 const MainDesktop = () => {
+    const [isOpen, setIsOpen] = useState(false)
     const {itens} = useSelector((state:RootReducer) => state.contatos)
     let contatos = itens
+
+    function mostrarModal() {
+        setIsOpen(!isOpen);
+    }
     return (
         <Main>
             <header>
                 <BarraPesquisa/>
-                <BotaoAcao >+ Adiciona Contato</BotaoAcao>
+                <BotaoAcao onClick={mostrarModal} >+ Adiciona Contato</BotaoAcao>
             </header>
             <table>
                 <thead>
@@ -38,6 +46,7 @@ const MainDesktop = () => {
                     ))}
                 </tbody>
             </table>
+            {isOpen ? <Modal onClick={mostrarModal} children={<FormContato/>}/> : null}
         </Main>
     )
 }

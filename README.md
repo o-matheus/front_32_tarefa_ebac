@@ -112,3 +112,7 @@ Barra de pesquisa - Botao
 ## 12 de outubro
 - Renderizar lista a partir dos contados registrados no reducer contatos
 - Estilizar tabela
+
+## 20 de outubro
+- Finalizar estrutura FormContato
+- Criar Modal e definir que ao cliclar na versão desktop vai aparecer o form utilizado no mobile dentro do modal

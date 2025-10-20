@@ -31,7 +31,6 @@ export const Container = styled.div `
 `
 
 export const Input = styled.input `
-    width: 400px;
     background-color: ${variaveis.corFundoInput};
     color: ${variaveis.corTextoInput};
     border: 1px solid ${variaveis.corBordainput};

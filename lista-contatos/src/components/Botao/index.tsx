@@ -15,6 +15,7 @@ type BotaoAcaoProps = {
     children?: React.ReactNode
     arredondado?: boolean
     onClick?: () => void
+    type: 'button' | 'submit'
 }
 
 const cores =
@@ -30,7 +31,7 @@ const Botao  = styled(Btn)<NavegarProps>`
 
 export const BotaoNavegar = ({ tipo = 'primario', children, to, arredondado }: NavegarProps) => <Botao arredondado={arredondado} as={Link} to={to!} tipo={tipo}>{children}</Botao>
 
-export const BotaoAcao = ({ tipo = 'primario', children, arredondado, onClick }: BotaoAcaoProps) => <Botao onClick={onClick} arredondado={arredondado} type="button" tipo={tipo}>{children}</Botao>
+export const BotaoAcao = ({ type='button' ,tipo = 'primario', children, arredondado, onClick }: BotaoAcaoProps) => <Botao onClick={onClick} arredondado={arredondado} type={type} tipo={tipo}>{children}</Botao>
 
 
 

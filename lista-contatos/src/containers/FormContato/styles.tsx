@@ -6,9 +6,12 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 200px;
 
     span {
-        margin-bottom: 44px;
+        margin-bottom: 24px;
         svg {
             height: 116px;
             width: 116px;
@@ -20,5 +23,29 @@ export const Form = styled.form`
     input {
         margin-bottom: 8px;
         padding-left: 16px;
+        max-width: 100%;
+    }
+
+    button {
+        margin-top: 48px;
+        font-size: 16px;
+        width: 100px;
+    }
+`
+
+export const Opcoes = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 100%;
+    margin-top: 8px;
+`
+
+export const Opcao = styled.div`
+    font-size: 20px;
+   
+    color: ${variaveis.corTextoInput};
+    label {
+        margin-left: 8px;
     }
 `

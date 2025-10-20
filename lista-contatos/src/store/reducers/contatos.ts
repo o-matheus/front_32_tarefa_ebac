@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 import * as enums from '../../utils/enums/contato'
 import Contato from "../../models/contato";
 
@@ -39,10 +40,24 @@ const contatosSlice = createSlice({
     name: 'cotatos',
     initialState,
     reducers: {
+        adicionar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
+            const contatoExiste = state.itens.find(
+                (contato) => contato.nome.toLowerCase() === action.payload.nome.toLowerCase()
+            )
 
+            if (contatoExiste) alert("Já existe um contato com esse nome")
+            else {
+                const ultimoContato = state.itens[state.itens.length - 1]
+                const novoContato = {
+                    ...action.payload,
+                    id: ultimoContato ? ultimoContato.id + 1 : 1
+                }
+                state.itens.push(novoContato)
+            }
+        }
     }
 })
 
-
+export const {adicionar} = contatosSlice.actions
 export default contatosSlice.reducer
 
