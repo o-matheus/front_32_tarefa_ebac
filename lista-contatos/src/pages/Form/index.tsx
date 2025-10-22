@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { BotaoNavegar } from "../../components/Botao"
 import FormContato from "../../containers/FormContato"
 import { Container } from "../../styles"
+import { useNavigate } from "react-router-dom"
 
 const PageContainer = styled(Container)`
     header {
@@ -17,6 +18,7 @@ const PageContainer = styled(Container)`
 `
 
 const Form = () => {
+    const navigate = useNavigate()
 
     return (
         <PageContainer>
@@ -24,7 +26,7 @@ const Form = () => {
                 <BotaoNavegar arredondado to="/" tipo="erro">X</BotaoNavegar>
             </header>
             <main>
-                <FormContato />
+                <FormContato onClose={() => navigate('/')} />
             </main>
         </PageContainer>
     )

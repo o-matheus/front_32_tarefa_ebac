@@ -2,15 +2,16 @@ import type Contato from "../../models/contato"
 import { iconeContato } from "../../utils/iconeCategoria";
 import IconesAcao from "../IconesAcao";
 
-type LinhaTabelaProps = Contato
+type LinhaTabelaProps = Contato & {
+    onEditar?: () => void
+}
 
 
 const LinhaTabela = ({
-    id, nome, email, telefone, categoria, favorito
+    id, nome, email, telefone, categoria, favorito, onEditar
 }: LinhaTabelaProps) => {
 
     return (
-
         <tr key={id}>
             <td>
                 <span>
@@ -20,7 +21,7 @@ const LinhaTabela = ({
             <td>{nome}</td>
             <td>{email}</td>
             <td>{telefone}</td>
-            <td><IconesAcao /></td>
+            <td><IconesAcao onEditarDesktop={onEditar} isMobile={false} id={id} favorito={favorito} /></td>
         </tr>
     )
 }

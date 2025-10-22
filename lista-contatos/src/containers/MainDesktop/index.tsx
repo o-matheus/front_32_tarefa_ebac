@@ -1,27 +1,36 @@
 import { useSelector } from "react-redux"
+import { useState } from "react"
 
 import BarraPesquisa from "../../components/BarraPesquisa"
 import { Main } from "./styles"
 import type { RootReducer } from "../../store"
 import LinhaTabela from "../../components/LinhaTabela"
 import {BotaoAcao} from "../../components/Botao"
-import { useState } from "react"
 import Modal from "../../components/Modal"
 import FormContato from "../FormContato"
+import { useModal } from "../../hooks/modal"
 
 const MainDesktop = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const { isOpen, mostrarModal } = useModal();
     const {itens} = useSelector((state:RootReducer) => state.contatos)
+    const [idEditando, setIdEditando] = useState<number | null>(null)
     let contatos = itens
 
-    function mostrarModal() {
-        setIsOpen(!isOpen);
+    const abrirModalEditar = (id: number) => {
+        setIdEditando(id)
+        if(!isOpen) mostrarModal()
     }
+
+    const abrirModalAdicionar = () => {
+        setIdEditando(null)
+        if(!isOpen) mostrarModal()
+    }
+    
     return (
         <Main>
             <header>
                 <BarraPesquisa/>
-                <BotaoAcao onClick={mostrarModal} >+ Adiciona Contato</BotaoAcao>
+                <BotaoAcao type="button" onClick={() => abrirModalAdicionar()} >+ Adiciona Contato</BotaoAcao>
             </header>
             <table>
                 <thead>
@@ -42,11 +51,16 @@ const MainDesktop = () => {
                             telefone={c.telefone}
                             categoria={c.categoria}
                             favorito={c.favorito}
+                            onEditar={() => abrirModalEditar(c.id)}
                         />
                     ))}
                 </tbody>
             </table>
-            {isOpen ? <Modal onClick={mostrarModal} children={<FormContato/>}/> : null}
+            {isOpen && (
+                <Modal onClick={mostrarModal}>
+                    <FormContato id={idEditando ?? undefined} onClose={mostrarModal} />
+                </Modal>
+            )}
         </Main>
     )
 }

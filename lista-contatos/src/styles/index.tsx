@@ -19,7 +19,7 @@ const EstiloGlobal = createGlobalStyle`
     }
 `
 
-export const Container = styled.div `
+export const Container = styled.div`
     display: flex;
     background-color: ${variaveis.corFundo};
 
@@ -30,7 +30,7 @@ export const Container = styled.div `
     }
 `
 
-export const Input = styled.input `
+export const Input = styled.input`
     background-color: ${variaveis.corFundoInput};
     color: ${variaveis.corTextoInput};
     border: 1px solid ${variaveis.corBordainput};
@@ -51,6 +51,12 @@ export const Btn = styled.button`
     border: none;
     border-radius: 8px;
     color: ${variaveis.corBTexto};
+`
+
+export const HeaderMobile = styled.header`
+        display: flex;
+        justify-content: space-between;
+        margin: 16px 8px 24px;
 `
 
 export default EstiloGlobal;

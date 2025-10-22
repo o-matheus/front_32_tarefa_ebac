@@ -22,4 +22,7 @@ export default {
     corFundoTabela: '#FAFAFB',
     corBordaTabela: '#F3F4F6',
 
+    //Contato Mobile
+    corContatoMobile: '#e4dfdf'
+
 }

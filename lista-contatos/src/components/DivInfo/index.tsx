@@ -4,12 +4,13 @@ import { Div } from "./styles"
 type DivProps = {
     svg: React.ReactNode,
     texto: string
+    onClick?: () => void
 }
 
-const DivInfo = ({svg, texto}: DivProps) => {
+const DivInfo = ({svg, texto, onClick}: DivProps) => {
 
     return (
-        <Div type="button">
+        <Div onClick={onClick} type="button">
             <span>{svg}</span>
             <p>{texto}</p>
         </Div>

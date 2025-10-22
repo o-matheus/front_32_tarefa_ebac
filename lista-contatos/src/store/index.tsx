@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import contatoReducer from './reducers/contatos'
+import filtrosReducer from './reducers/filtro'
 
 
 const store = configureStore({
     reducer: {
-        contatos: contatoReducer
+        contatos: contatoReducer,
+        filtros: filtrosReducer
     }
 })
 

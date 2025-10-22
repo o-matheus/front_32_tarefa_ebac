@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { Input } from "../../styles";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootReducer } from "../../store";
+import { alterarTermo } from "../../store/reducers/filtro";
 
 
 const InputPesquisa = styled(Input)`
@@ -10,6 +13,13 @@ const InputPesquisa = styled(Input)`
     width: 400px;
 `;
 
-const BarraPesquisa = () => <InputPesquisa placeholder="Buscar Contatos"/>
+const BarraPesquisa = () => {
+    const dispatch = useDispatch()
+    const {termo} = useSelector((state: RootReducer) => state.filtros)
+
+    return (
+        <InputPesquisa value={termo} onChange={({target}) => dispatch(alterarTermo(target.value))}  type="text" placeholder="Buscar Contatos"/>
+    )
+} 
 
 export default BarraPesquisa

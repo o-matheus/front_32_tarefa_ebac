@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import variaveis from "../../styles/variaveis";
 
 export const DivFiltros = styled.div`
     display: flex;
@@ -8,5 +9,9 @@ export const DivFiltros = styled.div`
 
     @media (max-width: 768px) {
         flex-direction: row;
+
+        button {
+            color: ${variaveis.corTextoInput};
+        }
     }
 `

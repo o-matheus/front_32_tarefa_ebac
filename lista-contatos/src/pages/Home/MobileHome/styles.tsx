@@ -3,19 +3,15 @@ import variaveis from "../../../styles/variaveis";
 
 export const DivMobile = styled.div`
     header {
-        display: flex;
-        justify-content: space-between;
-        margin: 16px 8px 24px;
         input {
             width: 240px;
-           
         }
     }
 
     main {
         button {
             margin-left: 8px;
-            color: #e4dfdf;
+            color: ${variaveis.corContatoMobile};
             width: 300px;
             p {
                 font-weight: 400;

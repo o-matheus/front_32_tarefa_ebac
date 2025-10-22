@@ -54,10 +54,31 @@ const contatosSlice = createSlice({
                 }
                 state.itens.push(novoContato)
             }
+        },
+        favoritar: (state, action: PayloadAction<number>) => {
+            const contato = state.itens.find((c) => c.id === action.payload)
+            if(contato) {
+                contato.favorito = !contato.favorito
+            }
+        },
+        apagar: (state, action:PayloadAction<number>) => {
+            state.itens = state.itens.filter(contato => contato.id !== action.payload)
+        },
+        editar: (state, action: PayloadAction<Contato>) => {
+            const contato = state.itens.find(
+                (c) => c.id === action.payload.id
+            )
+            if (contato) {
+                contato.nome = action.payload.nome
+                contato.email = action.payload.email
+                contato.telefone = action.payload.telefone
+                contato.categoria = action.payload.categoria
+                contato.favorito = action.payload.favorito
+            }
         }
     }
 })
 
-export const {adicionar} = contatosSlice.actions
+export const {adicionar, favoritar, apagar, editar} = contatosSlice.actions
 export default contatosSlice.reducer
 

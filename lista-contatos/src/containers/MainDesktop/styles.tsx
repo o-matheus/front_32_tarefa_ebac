@@ -15,7 +15,8 @@ export const Main = styled.main`
         margin: 0 auto;
         margin-top: 120px;
         text-align: center;
-        max-width: 800px;
+        width: 1000px;
+        max-width: 1200px;
         font-size: 20px;
         background-color: ${variaveis.corFundoTabela} ;
 
@@ -33,6 +34,8 @@ export const Main = styled.main`
         th, td {
             padding: 8px 12px;
             border-bottom: 1px solid ${variaveis.corBordaTabela} ;
+            word-wrap: break-word;
+            max-width: 300px;
         }
 
         span {
