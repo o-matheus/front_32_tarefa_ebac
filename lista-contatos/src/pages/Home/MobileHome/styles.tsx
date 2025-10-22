@@ -3,12 +3,21 @@ import variaveis from "../../../styles/variaveis";
 
 export const DivMobile = styled.div`
     header {
+        margin: 0 8px;
+        padding: 16px 0 16px 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
         input {
             width: 240px;
         }
+
     }
 
     main {
+        height: 85vh;
+        overflow-y: scroll;
+        background-color: ${variaveis.corFundo};
         button {
             margin-left: 8px;
             color: ${variaveis.corContatoMobile};
@@ -21,8 +30,10 @@ export const DivMobile = styled.div`
     }
 
     footer{
-        position: fixed;
+        position: sticky;
         bottom: 0;
+        background-color: ${variaveis.corFundo};
+        height: auto;
         div {
             width: 100vw;
             justify-content: center;

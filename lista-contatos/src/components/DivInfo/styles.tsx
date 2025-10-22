@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import variaveis from "../../styles/variaveis";
 
-export const Div = styled.button`
+type PropsDiv = {
+    ativo?: boolean
+}
+
+export const Div = styled.button<PropsDiv>`
     display: flex;
     justify-content: first baseline;
     align-items: center;
@@ -10,6 +14,11 @@ export const Div = styled.button`
     border: none;
     background-color: transparent;
     border-radius: 8px;
+    color: ${(props) => (props.ativo ? variaveis.corBPrimaria : variaveis.corFundo)};
+
+    @media (max-width:768px) {
+        color: ${(props) => (props.ativo ? variaveis.corBPrimaria : variaveis.corFundoSidebar)};
+    }
 
     &:hover, &:focus {
         color: ${variaveis.corBPrimaria};

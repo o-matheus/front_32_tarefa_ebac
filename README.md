@@ -1,118 +1,70 @@
-# Tarefa Módulo 32 - Front-end
+# Lista de Contatos
 
-## Requisitos
-Criar uma lista de contatos com as seguintes informações para cada contato:
-- Nome
-- E-mail
-- Telefone
+Projeto de uma aplicação web para cadastro, edição, exclusão e filtragem de contatos, desenvolvido em React com Redux Toolkit.
 
-Operações disponíveis para cada contato:
-- Adicionar
-- Remover
-- Editar
+## Funcionalidades
 
-**Tecnologias utilizadas:** React, Redux e Styled Components
+- Adicionar, editar e remover contatos
+- Marcar contatos como favoritos
+- Filtrar contatos por nome, categoria ou favoritos
+- Visualização adaptada para desktop (modal) e mobile (página)
+- Persistência dos contatos no localStorage do navegador
+- Máscara de telefone automática no formulário
 
----
+## Tecnologias Utilizadas
 
-## Passo a passo
+- React
+- Redux Toolkit
+- TypeScript
+- Styled-components
+- React Router DOM
+- Lucide React (ícones)
 
-### 1. Inicialização do projeto React com Vite
-```bash
-npm init vite@latest # Iniciar projeto React com Vite
-cd lista-contatos
-npm install
-npm run dev
+## Como rodar o projeto
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repo.git
+   cd seu-repo
+   ```
+
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   # ou
+   yarn
+   ```
+
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm start
+   # ou
+   yarn start
+   ```
+
+4. **Acesse no navegador:**
+   ```
+   http://localhost:3000
+   ```
+
+## Estrutura do Projeto
+
+```
+src/
+ ├── components/         # Componentes reutilizáveis (ícones, botões, etc)
+ ├── containers/         # Containers principais (Home, FormContato, MainDesktop, etc)
+ ├── store/              # Redux store, reducers e tipos
+ ├── utils/              # Funções utilitárias e enums
+ ├── styles/             # Estilos globais e temas
+ └── App.tsx             # Rotas principais
 ```
 
-### 2. Instalação de dependências
+## Observações
 
-**Styled Components:**
-```bash
-npm install styled-components
-npm install -D @types/styled-components
-```
+- Os contatos são salvos automaticamente no localStorage, mantendo os dados mesmo após fechar o navegador.
+- O formulário de telefone aceita apenas números e aplica máscara automaticamente.
+- O layout é responsivo e adapta a experiência para desktop e mobile.
 
-**Redux e Redux Toolkit:**
-```bash
-npm install react-redux @reduxjs/toolkit
-```
+## Licença
 
-**React Router DOM:**
-```bash
-npm install react-router-dom
-```
-
----
-
-### 3. Estrutura inicial do projeto
-
-**Modelos:**
-- Criar a pasta `models` com o arquivo `contato.ts` para definir a classe e o construtor do contato.
-- Criar a pasta `utils/enums` para definir os enums de categoria: pessoal, trabalho, serviços.
-    - Propriedades: nome (string), email (string), telefone (string), categoria (enum), favorito (boolean, opcional).
-
-**Pages:**
-- Criar a pasta `pages` para organizar as páginas da aplicação.
-    - Desktop: apenas 1 página (Home) e um modal para adicionar contatos.
-    - Mobile: 3 páginas principais (Home, InfoContato, AdicionarContato).
-
-**Funções principais:**
-- Adicionar contato
-- Editar contato
-- Deletar contato
-- Favoritar contato (opcional)
-
----
-
-### 4. Layouts
-
-**Mobile:**
-O layout mobile possui 4 telas:
-- Home
-- Informações do contato
-- Adicionar contato
-- Editar contato
-
-**Desktop:**
-- Home
-- Modal para adicionar contatos
-
----
-
-## Componentes reutilizáveis
-- Barra de pesquisa
-- Botão fechar
-- Botão adicionar contato
-- Ações: Favoritar / Editar / Excluir
-- Formulário para adicionar/editar contatos
-- Card de contato (mobile) e card de filtros (desktop) – mesma estrutura
-
----
-
-## Link do design
-[Design no Visily](https://app.visily.ai/projects/743709e1-66f3-4680-a830-d2172ac78cc9/boards/2134140)
-
-
-## 8 de outubro
-Iniciando o projeto do último push do computador antigo, passei alguns dias trabalhando e não commitei para o git, agora vou começar do zero de novo para fortalecer alguns conceitos e estruturas.
-- Criei o estilo globlal, e estou criando um container que vai envolver o conteúdo da página tanto no Desktop e Mobile.
-- Criando components a serem utilizados no projeto.
-Barra de pesquisa - Botao
-- Criando os containers para a visão da home do desktop e do mobile
-
-- Fazendo uma função para que o react faça a validação da tela se é mobile ou desktop.
-- Defindo a estilização e estrutura das páginas nas duas visualizações 
-- Passei muito tempo tentando usar o svg como background image, o problema era a forma como eu estava escrevendo, depois de algum tempo descobri.
-
-## 10 de outubro
-- Instalação do Lucide icons 
-- Criação do Botão com a props para costumizar cor e adicionado comportamento para que o botão seja um Link do react-router-dom
-
-## 12 de outubro
-- Renderizar lista a partir dos contados registrados no reducer contatos
-- Estilizar tabela
-
-## 20 de outubro
-- Finalizar estrutura FormContato
-- Criar Modal e definir que ao cliclar na versão desktop vai aparecer o form utilizado no mobile dentro do modal
+Este projeto está sob a licença MIT.

@@ -11,11 +11,14 @@ export const FundoModal = styled.div`
     left: 0;
     right: 0;
     background-color: rgba(0,0,0,0.9);
+    z-index: 100;
 `
 
 export const ConteudoModal = styled.div`
     background-color: ${variaveis.corFundo};
     padding: 10px 40px 40px;
+    z-index: 100;
+    width: 500px;
 
     header {
         display: flex;

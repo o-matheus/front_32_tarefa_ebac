@@ -3,19 +3,33 @@ import variaveis from "../../styles/variaveis";
 
 export const Main = styled.main`
     width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 32px;
+    max-width: 80%;
 
     header {
-        margin: 32px 56px 104px;
+        margin: 0px 56px;
         display: flex;
         justify-content: space-between;
+        position: sticky;
+        background-color: ${variaveis.corFundo};
+        z-index: 10;
+        top: 0;
+        padding-bottom: 81px;
+        padding-top: 32px;
+
+        button {
+            margin-bottom: 2px;
+            font-size: 20px;
+        }
         
     }
 
     table {
         margin: 0 auto;
-        margin-top: 120px;
         text-align: center;
-        width: 1000px;
+        min-width: 700px;
         max-width: 1200px;
         font-size: 20px;
         background-color: ${variaveis.corFundoTabela} ;
@@ -24,6 +38,10 @@ export const Main = styled.main`
         border-spacing: 0;
 
         thead {
+            position: sticky;
+            background-color: ${variaveis.corFundoTabela};
+            z-index: 10;
+            top: 120px;
             color: ${variaveis.tHeadColor};
         }
 
@@ -45,5 +63,15 @@ export const Main = styled.main`
                 width: 28px;
             }
         }
+    }
+`
+
+export const TextoAdicionarContatos = styled.h2`
+    text-align: center;
+    margin: 0 auto;
+    color: ${variaveis.corBTexto};
+
+    @media (max-width: 768px) {
+        margin-top: 220px;
     }
 `

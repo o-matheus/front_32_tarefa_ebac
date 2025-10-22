@@ -7,34 +7,42 @@ type ContatosState = {
     itens: Contato[]
 }
 
-const initialState: ContatosState = {
+const STORAGE_KEY = "lista-contatos:v1";
+
+const defaultInitialState: ContatosState = {
     itens: [
         {
             id: 1,
-            nome: "Matheus",
-            email: "matheus@email.com",
-            telefone: "(85) 9.98721-3331",
-            categoria: enums.Categoria.SERICOS,
+            nome: "João Silva",
+            email: "joao.silva@email.com",
+            telefone: "(11) 91234-5678",
+            categoria: enums.Categoria.PESSOAL,
             favorito: false
         },
         {
             id: 2,
-            nome: "Ana Silva",
-            email: "ana.silva@email.com",
-            telefone: "(11) 9.9123-4567",
-            categoria: enums.Categoria.SERICOS,
-            favorito: false
-        },
-        {
-            id: 3,
-            nome: "João Pereira",
-            email: "joao.pereira@email.com",
-            telefone: "(21) 9.9987-6543",
+            nome: "Maria Oliveira",
+            email: "maria.oliveira@email.com",
+            telefone: "(21) 99876-5432",
             categoria: enums.Categoria.TRABALHO,
             favorito: true
         }
     ]
 }
+
+const loadInitialState = (): ContatosState => {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY)
+        if (!raw) return defaultInitialState;
+        const parsed = JSON.parse(raw) as ContatosState;
+        if (!parsed || !Array.isArray(parsed.itens)) return defaultInitialState;
+        return parsed;
+    } catch {
+        return defaultInitialState;
+    }
+}
+
+const initialState: ContatosState = loadInitialState();
 
 const contatosSlice = createSlice({
     name: 'cotatos',
@@ -57,11 +65,11 @@ const contatosSlice = createSlice({
         },
         favoritar: (state, action: PayloadAction<number>) => {
             const contato = state.itens.find((c) => c.id === action.payload)
-            if(contato) {
+            if (contato) {
                 contato.favorito = !contato.favorito
             }
         },
-        apagar: (state, action:PayloadAction<number>) => {
+        apagar: (state, action: PayloadAction<number>) => {
             state.itens = state.itens.filter(contato => contato.id !== action.payload)
         },
         editar: (state, action: PayloadAction<Contato>) => {
@@ -79,6 +87,6 @@ const contatosSlice = createSlice({
     }
 })
 
-export const {adicionar, favoritar, apagar, editar} = contatosSlice.actions
+export const { adicionar, favoritar, apagar, editar } = contatosSlice.actions
 export default contatosSlice.reducer
 

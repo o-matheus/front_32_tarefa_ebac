@@ -75,7 +75,17 @@ const FormContato = (props:PropsForm) => {
             props.onClose?.()
         }
     }
-
+    function formatarTelefone(valor: string): string {
+        const numeros = valor.replace(/\D/g, '').slice(0, 11);
+        if (numeros.length <= 2) {
+            return `(${numeros})`;
+        } else if (numeros.length <= 7) {
+            return `(${numeros.slice(0,2)}) ${numeros.slice(2)}`
+        } else if (numeros.length <= 11) {
+            return `(${numeros.slice(0,2)}) ${numeros.slice(2, 7)}-${numeros.slice(7)}`;
+        }
+        return valor;
+    }
     return (
         <Form onSubmit={handleForm}>
             <span>
@@ -83,7 +93,7 @@ const FormContato = (props:PropsForm) => {
             </span>
             <Input value={nome} type="text" placeholder="nome" required onChange={({ target }) => setNome(target.value)} />
             <Input value={email} type="text" placeholder="email" onChange={({ target }) => setEmail(target.value)} />
-            <Input value={telefone} type="text" placeholder="telefone" required onChange={({ target }) => setTelefone(target.value)} />
+            <Input value={telefone} type="text" placeholder="telefone" required onChange={({ target }) => setTelefone(formatarTelefone(target.value))} />
             <Opcoes>
                 {Object.values(enums.Categoria).map((categoria) => (
                     <Opcao key={categoria}>

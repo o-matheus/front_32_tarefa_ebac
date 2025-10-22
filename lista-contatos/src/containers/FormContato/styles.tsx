@@ -8,7 +8,8 @@ export const Form = styled.form`
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    width: 200px;
+    width: 80%;
+   
 
     span {
         margin-bottom: 24px;
@@ -23,7 +24,7 @@ export const Form = styled.form`
     input {
         margin-bottom: 8px;
         padding-left: 16px;
-        max-width: 100%;
+        width: 100%;
     }
 
     button {
@@ -42,7 +43,14 @@ export const Opcoes = styled.div`
 `
 
 export const Opcao = styled.div`
+    display: flex;
+    justify-content: left;
+    align-items: center;
     font-size: 20px;
+    input {
+        width: auto;
+        margin-bottom: 0;
+    }
    
     color: ${variaveis.corTextoInput};
     label {

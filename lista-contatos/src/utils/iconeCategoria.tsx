@@ -1,11 +1,22 @@
+import type { JSX } from "react";
 import { BriefcaseBusiness, Cog, Star, UserRound, UsersRound } from "lucide-react";
+import * as enums from '../utils/enums/contato'
 
-export const filtros = [
-    { svg: <UsersRound/>, texto: "Todos" },
-    { svg: <UserRound/>, texto: "Pessoal" },
-    { svg: <BriefcaseBusiness/>, texto: "Trabalho" },
-    { svg: <Cog/>, texto: "Serviços" },
-    { svg: <Star/>, texto: "Favoritos" },
+export type Criterios = 'Todos' | 'Categoria' | 'Favoritos';
+
+export type FiltroItem = {
+    svg: JSX.Element
+    texto: string
+    criterios: Criterios
+    valor?: enums.Categoria
+}
+
+export const filtros:FiltroItem[] = [
+    { svg: <UsersRound/>, texto: "Todos", criterios: 'Todos' },
+    { svg: <UserRound/>, texto: "Pessoal", criterios: 'Categoria', valor: enums.Categoria.PESSOAL  },
+    { svg: <BriefcaseBusiness/>, texto: "Trabalho", criterios: 'Categoria', valor: enums.Categoria.TRABALHO },
+    { svg: <Cog/>, texto: "Serviços", criterios: 'Categoria', valor: enums.Categoria.SERVICOS },
+    { svg: <Star/>, texto: "Favoritos", criterios: 'Favoritos' },
 ]
 
 export function iconeContato(categoria: string) {

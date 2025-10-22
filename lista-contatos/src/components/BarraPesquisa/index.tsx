@@ -15,7 +15,7 @@ const InputPesquisa = styled(Input)`
 
 const BarraPesquisa = () => {
     const dispatch = useDispatch()
-    const {termo} = useSelector((state: RootReducer) => state.filtros)
+    const {termo} = useSelector((state: RootReducer) => state.filtro)
 
     return (
         <InputPesquisa value={termo} onChange={({target}) => dispatch(alterarTermo(target.value))}  type="text" placeholder="Buscar Contatos"/>

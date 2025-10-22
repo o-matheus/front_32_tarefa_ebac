@@ -1,16 +1,20 @@
 import { Div } from "./styles"
+import * as enums from "../../utils/enums/contato"
 
 
 type DivProps = {
     svg: React.ReactNode,
     texto: string
     onClick?: () => void
+    valor?: enums.Categoria
+    criterios?: 'Todos' | 'Categoria' | 'Favoritos'
+    ativo?: boolean
 }
 
-const DivInfo = ({svg, texto, onClick}: DivProps) => {
+const DivInfo = ({svg, texto, onClick, criterios, valor, ativo}: DivProps) => {
 
     return (
-        <Div onClick={onClick} type="button">
+        <Div ativo={ativo} onClick={onClick} type="button">
             <span>{svg}</span>
             <p>{texto}</p>
         </Div>
