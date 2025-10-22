@@ -11,7 +11,7 @@ type DivProps = {
     ativo?: boolean
 }
 
-const DivInfo = ({svg, texto, onClick, criterios, valor, ativo}: DivProps) => {
+const DivInfo = ({svg, texto, onClick, ativo}: DivProps) => {
 
     return (
         <Div ativo={ativo} onClick={onClick} type="button">
